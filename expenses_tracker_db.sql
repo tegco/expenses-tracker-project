@@ -4,6 +4,7 @@ CREATE TABLE currency (
     id serial PRIMARY KEY,
     code varchar(3) NOT NULL,
     name varchar(50) NOT NULL
+    symbol char(1) NOT NULL
 );
 
 -- Table: user
