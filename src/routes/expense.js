@@ -1,7 +1,7 @@
 const express = require('express');
+const db = require('./src/database/db'); // Import database connection
 const Joi = require('joi');
 const router = express.Router();
-//const db = require('./src/database/db');
 
 const db = [
   { id: 1, name: 'Expense 1' },
