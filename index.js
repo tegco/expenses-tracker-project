@@ -1,5 +1,4 @@
 const express = require('express');
-const routes = require('./src/routes/routes.js');
 const db = require('./src/database/db');
 const app = express();
 
@@ -7,10 +6,21 @@ const app = express();
 // Thats why we use an environment variable
 const port = process.env.PORT || 3000; // Desired port number to run the server
 
-//Ensure that the request body parsing middleware is registered before any routes are defined, which is 
-//the correct order for middleware registration in Express.js.
 app.use(express.json());
-app.use('/', routes);
+
+// Import your route files
+const currencyRouter = require('./src/routes/currency');
+const expense_categoryRouter = require('./src/routes/expense_category');
+const expenseRouter = require('./src/routes/expense');
+const incomeRouter = require('./src/routes/expense_category');
+const userRouter = require('./src/routes/user');
+
+// Use the imported route files
+app.use('/', currencyRouter);
+app.use('/', expense_categoryRouter);
+app.use('/', expenseRouter);
+app.use('/', incomeRouter);
+app.use('/', userRouter);
 
 
 // Test the database connection
@@ -22,7 +32,7 @@ db.one('SELECT 1')
     console.error('Error connecting to the database:', error);
   })
   .finally(() => {
-    db.$pool.end(); // Close the database connection
+   
   });
 
 app.listen(port, () => {

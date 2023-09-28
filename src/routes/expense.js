@@ -1,28 +1,27 @@
 const express = require('express');
-const db = require('./src/database/db'); // Import database connection
+const db = require('../database/db');
 const Joi = require('joi');
-const router = express.Router();
+const expenseRouter = express.Router();
+const expenseController = require('../controllers/expenseController');
 
-const db = [
-  { id: 1, name: 'Expense 1' },
-  { id: 2, name: 'Expense 2' },
-];
+/* /api/expenses: Retrieve a list of all expenses for the authenticated user.
+/api/expenses/:id: Retrieve a specific expense by ID.
+/api/expenses/create: Create a new expense record.
+/api/expenses/:id/update: Update an existing expense by ID.
+/api/expenses/:id/delete: Delete an expense by ID. */
 
-router.get('/', (req, res) => {
-  res.send('Hi, Express!');
+expenseRouter.get('/api/expenses', async (req, res) => {
+  const userId = req.params.id;
+  const expenses = await db.query('SELECT * FROM expense WHERE user_id = $1', [userId]);
 });
 
-router.get('/api/expenses', (req, res) => {
-  res.json(db);
-});
-
-router.get('/api/expenses/:id', (req, res) => {
+expenseRouter.get('/api/expenses/:id', (req, res) => {
   const expense = db.find(e => e.id === parseInt(req.params.id));
   if (!expense) return res.status(404).send('The expense with the given ID was not found');
   res.send(expense);
 });
 
-router.post('/api/expenses', (req, res) => {
+expenseRouter.post('/api/expenses', (req, res) => {
   //Input validation
   const result = validateExpense(req.body);
 
@@ -37,7 +36,7 @@ router.post('/api/expenses', (req, res) => {
   res.send(expense);
 });
 
-router.put('/api/expenses/:id', (req, res) => {
+expenseRouter.put('/api/expenses/:id', (req, res) => {
   const expense = db.find(e => e.id === parseInt(req.params.id));
 
   if (!expense) return res.status(404).send('The expense with the given ID was not found');
@@ -51,7 +50,7 @@ router.put('/api/expenses/:id', (req, res) => {
   res.send(expense);
 });
 
-router.delete('/api/expenses/:id', (req, res) => {
+expenseRouter.delete('/api/expenses/:id', (req, res) => {
   const expense = db.find(e => e.id === parseInt(req.params.id));
   console.log("delete" + req.params.id);
 
@@ -71,4 +70,4 @@ function validateExpense(expense){
 }
 
 
-module.exports = router;
+module.exports = expenseRouter;
