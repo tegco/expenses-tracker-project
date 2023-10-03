@@ -11,7 +11,6 @@ CREATE TABLE currency (
 CREATE TABLE "user" (
     id serial PRIMARY KEY,
     username varchar(10) NOT NULL,
-    email varchar(50) NOT NULL,
     password_hash varchar(10) NOT NULL,
     selected_currency_id int NOT NULL DEFAULT 1, -- Default currency or any other default ID
     FOREIGN KEY (selected_currency_id) REFERENCES currency(id)

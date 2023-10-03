@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('./src/database/db');
+const passport = require('passport');
 const app = express();
 
 // When you deploy this app to a hosting environment the port is dynamically assigned by the hosting environment, 3000 might not be available
@@ -7,6 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000; // Desired port number to run the server
 
 app.use(express.json());
+app.use(passport.initialize());
 
 // Import your route files
 const currencyRouter = require('./src/routes/currency');
