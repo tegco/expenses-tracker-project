@@ -29,6 +29,11 @@ CREATE TABLE expense (
     FOREIGN KEY (selected_currency_id) REFERENCES currency(id)
 );
 
+CREATE TABLE payment_methods (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL
+);
+
 -- Table: expense_category
 CREATE TABLE expense_category (
     id serial PRIMARY KEY,

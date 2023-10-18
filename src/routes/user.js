@@ -5,12 +5,6 @@ const userRouter = express.Router();
 const userController = require('../controllers/userController');
 const { authenticateToken } = require('../middleware/authMiddleware');
 
-
-/* /api/register: Register a new user.
-/api/login: Authenticate and log in a user.
-/api/logout: Log out a user.
-/api/user/profile: Retrieve or update user profile information. */
-
 userRouter.get('/', (req, res) => {
     res.send('Hi, Express!');
   });
