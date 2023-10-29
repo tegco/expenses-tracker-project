@@ -2,7 +2,7 @@ const db = require('../database/db');
 
 exports.createExpense = async (req, res) => {
   
-  const { expense_date, description, amount, payment_method } = req.body;
+  const { expense_date, description, amount, payment_method, category} = req.body;
   const loggedUserId = req.user.id;
   const result =  await db.query("SELECT selected_currency_id FROM app_user WHERE id = $1", [loggedUserId]);
 
@@ -12,8 +12,8 @@ if (result && result.length > 0) {
 
   try {
     const newExpense = await db.query(
-      'INSERT INTO expense (expense_date, description, amount, user_id, selected_currency_id, payment_method_id) VALUES (to_date($1, \'DD-MM-YYYY\'), $2, $3, $4, $5, $6) RETURNING *', 
-      [expense_date, description, amount, loggedUserId, selectedCurrencyId, payment_method]
+      'INSERT INTO expense (expense_date, description, amount, user_id, selected_currency_id, payment_method_id, category_id) VALUES (to_date($1, \'DD-MM-YYYY\'), $2, $3, $4, $5, $6, $7) RETURNING *', 
+      [expense_date, description, amount, loggedUserId, selectedCurrencyId, payment_method, category]
       );
     res.status(201).json(newExpense[0]);
   } catch (error) {
@@ -61,11 +61,11 @@ exports.getAllExpenses = async (req, res) => {
     try {
 
       const expenseId = req.params.id;
-      const { expense_date, description, amount, payment_method_id} = req.body;
+      const { expense_date, description, amount, payment_method_id, category} = req.body;
   
       const result = await db.query(
-        'UPDATE expense SET expense_date = $1, description = $2, amount = $3, payment_method_id = $4 WHERE id = $5 RETURNING *',
-        [expense_date, description, amount, payment_method_id, expenseId]
+        'UPDATE expense SET expense_date = $1, description = $2, amount = $3, payment_method_id = $4, category_id = $5 WHERE id = $6 RETURNING *',
+        [expense_date, description, amount, payment_method_id, category, expenseId]
       );
   
       if (result.length === 0) {
