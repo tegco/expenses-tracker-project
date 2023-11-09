@@ -1,5 +1,5 @@
 # Expense Tracker Web Application
-An expense tracker web application built with Express.js, React and Node.js to help users manage their expanses and finances.
+An expense tracker web application built using Node.js as back-end environment with Express.js framework and react library for front-end development, to help users manage their expanses and finances.
 
 ## Table of Contents
 
