@@ -11,10 +11,10 @@ const dbName = process.env.DB_NAME;
 
 const db = pgp({
     host: dbHost,         // Your PostgreSQL host
-    port:dbPort,                // Default PostgreSQL port
-    database: dbName,  // Your database name
-    user: dbUser,      // Your PostgreSQL username
-    password: dbPassword,  // Your PostgreSQL password
+    port:dbPort,          // Default PostgreSQL port
+    database: dbName,     // Your database name
+    user: dbUser,         // Your PostgreSQL username
+    password: dbPassword, // Your PostgreSQL password
   });
 
 module.exports = db;

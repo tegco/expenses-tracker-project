@@ -26,6 +26,5 @@ userRouter.post('/api/register', userController.register);
 userRouter.post('/api/login', userController.login);
 userRouter.get('/api/user/profile', authenticateToken, userController.getProfile);
 userRouter.put('/api/user/profile', authenticateToken, userController.updatePassword);
-userRouter.post('/api/logout', authenticateToken, userController.logout);
 
 module.exports = userRouter;

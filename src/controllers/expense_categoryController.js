@@ -21,19 +21,19 @@ exports.getAllCategories = async (req, res) => {
   }
   };
   
-  exports.getCategoryBId = async (req, res) => {
-    // Implement logic to retrieve a specific expense by ID
-  };
-  
-  exports.createCategory = async (req, res) => {
-    // Implement logic to create a new expense
-  };
-  
-  exports.updateCategory = async (req, res) => {
-    // Implement logic to update an existing expense by ID
-  };
-  
-  exports.deleteCategory = async (req, res) => {
-    // Implement logic to delete an expense by ID
-  };
+  // Implement logic to retrieve a specific category by ID
+  exports.getCategoryByExpenseId = async (req, res) => {
+    try {
+      const categoryId = req.params.id;
+      const category = await db.query('SELECT * FROM expense_category WHERE id = $1', [categoryId]);
 
+      if(category && category.length > 0){
+        res.status(200).json(category[0]);
+      } else {
+        res.status(404).json({message: 'Category not found'});
+      }
+    } catch (error){
+      console.error('Error fetching category by ID:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  };

@@ -28,7 +28,6 @@ exports.login = async (req, res) => {
         // Retrieve the user from the database
     const result = await db.query('SELECT * FROM app_user WHERE username = $1', [username]);
     console.log("Result:", result);
-    console.log("Result Rows:", result.rows);
 
     if (!result) {
       return res.status(401).json({ message: 'Incorrect username!' });
@@ -92,8 +91,4 @@ exports.updatePassword = async (req, res) => {
         console.error(error);
         res.status(500).json({ message: 'Password update failed' });
     }
-};
-
-exports.logout = async (req, res) => {
-    res.status(200).json({ message: 'Logout successful' });   
 };

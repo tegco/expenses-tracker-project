@@ -11,6 +11,8 @@ expenseRouter.get('/api/expenses', authenticateToken, expenseController.getAllEx
 expenseRouter.get('/api/expenses/:id', authenticateToken, expenseController.getExpenseById);
 expenseRouter.put('/api/expenses/:id', authenticateToken, expenseController.updateExpense);
 expenseRouter.delete('/api/expenses/:id', authenticateToken, expenseController.deleteExpense);
+expenseRouter.get('/api/expenses/:id/category', authenticateToken, expenseController.getCategoryByExpenseId);
+expenseRouter.get('/api/expenses/category/:id', authenticateToken, expenseController.getExpensesByCategoryId);
 
 function validateExpense(expense) {
   const schema = Joi.object({
