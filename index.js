@@ -14,7 +14,7 @@ app.use(passport.initialize());
 const currencyRouter = require('./src/routes/currency');
 const expense_categoryRouter = require('./src/routes/expense_category');
 const expenseRouter = require('./src/routes/expense');
-const incomeRouter = require('./src/routes/expense_category');
+const incomeRouter = require('./src/routes/income');
 const userRouter = require('./src/routes/user');
 
 // Use the imported route files

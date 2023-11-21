@@ -7,7 +7,7 @@ const { authenticateToken } = require('../middleware/authMiddleware');
 
 
 expenseRouter.post('/api/expenses', authenticateToken, expenseController.createExpense);
-expenseRouter.get('/api/expenses', authenticateToken, expenseController.getAllExpenses);
+expenseRouter.get('/api/expenses/:year/:month', authenticateToken, expenseController.getExpensesByMonthAndYear);
 expenseRouter.get('/api/expenses/:id', authenticateToken, expenseController.getExpenseById);
 expenseRouter.put('/api/expenses/:id', authenticateToken, expenseController.updateExpense);
 expenseRouter.delete('/api/expenses/:id', authenticateToken, expenseController.deleteExpense);
