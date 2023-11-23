@@ -50,5 +50,6 @@ It was initially designed with the goal of personal learning and growth in techn
 ## Usage
 
 ## API documentation
-
+You can access documentation for the API in this page: 
+ <https://documenter.getpostman.com/view/26900780/2s9YeBfa63>
 
