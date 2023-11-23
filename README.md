@@ -1,5 +1,5 @@
 # Expense Tracker Web Application
-An expense tracker web application built using Node.js as back-end environment with Express.js framework and react library for front-end development, to help users manage their expanses and finances.
+An expense tracker web application built using Node.js as back-end environment with Express.js framework and react library for front-end development.
 
 ## Table of Contents
 
@@ -8,8 +8,6 @@ An expense tracker web application built using Node.js as back-end environment w
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 The Expense Tracker Web Application is a personal finance management tool designed to help individuals keep track of their income, expenses, and finance life overall.
@@ -17,16 +15,20 @@ The Expense Tracker Web Application is a personal finance management tool design
 It was initially designed with the goal of personal learning and growth in technologies I didn't have a lot of experience with, but really wanted to learn more about. 
 
 ## Features
-- Add and expense, choosing a category, date, amount, description and payment method
-- Edit or delete an expense
-- View details of an expense
-- Manage expenses categories
+- Add and expense, choosing a category, date, amount, description and payment method.
+- Update or delete an expense.
+- View details of an expense.
+- Add incomes, choosing a date, description and amount.
+- Update or delete an income.
+- View expenses and incomes related to a specific year and month.
+- View the total amount of expenses or incomes for a specific year and month.
+- View expenses by category. 
 - User registration and authentication
 
 
 ## Installation
 
-<b>1.</b> Clone the repository to your local machine:
+<b>1.</b> Clone the repository to your local machine.
 
 <b>2.</b> Install project dependencies using npm:
 
@@ -49,6 +51,4 @@ It was initially designed with the goal of personal learning and growth in techn
 
 ## API documentation
 
-## Contributing
 
-## Licence
