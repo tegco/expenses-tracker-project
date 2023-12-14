@@ -23,7 +23,7 @@ It was initially designed with the goal of personal learning and growth in techn
 - View expenses and incomes related to a specific year and month.
 - View the total amount of expenses or incomes for a specific year and month.
 - View expenses by category. 
-- User registration and authentication
+- User registration and authentication.
 
 
 ## Installation
@@ -32,24 +32,16 @@ It was initially designed with the goal of personal learning and growth in techn
 
 <b>2.</b> Install project dependencies using npm:
 
-`
-
     cd expense-tracker
     npm install
-    
-`
 
 <b>3.</b> Start the development server:
-
-`
     
     npm start
     
-`
-
 ## Usage
 
 ## API documentation
-You can access documentation for the API in this page: 
+Routes and endpoints were first tested using <b>Postman</b>, so you can access its documentation in this Postman page: 
  <https://documenter.getpostman.com/view/26900780/2s9YeBfa63>
 
