@@ -2,13 +2,11 @@ const db = require('../database/db');
 const monthlyTotalsUpdate = require('../utils/monthlyTotalsUpdate');
 
 exports.getIncomeById = async (req, res) => {
-
   const incomeId = req.params.id;
 
   try {
     const user_income = await db.query('SELECT * FROM income WHERE id = $1', [incomeId]);
     
-
     if(user_income && user_income.length > 0){
       res.status(200).json(user_income);
     } else {
@@ -17,8 +15,8 @@ exports.getIncomeById = async (req, res) => {
   } catch (error){
       console.error('Error fetching income:', error);
       res.status(500).json({message: 'Internal server error'});
-  } 
-  };
+  }
+};
 
   exports.getIncomeByMonthAndYear = async (req, res) => {
     const { year, month } = req.params;
@@ -42,7 +40,6 @@ exports.getIncomeById = async (req, res) => {
   };
   
   exports.createIncome = async (req, res) => {
-
     const loggedUserId = req.user.id;
     const {income_date, amount, description} = req.body;
 
@@ -51,7 +48,6 @@ exports.getIncomeById = async (req, res) => {
 
       if (result && result.length > 0) {
         const selectedCurrencyId = result[0].selected_currency_id;
-
         const newIncome = await db.query(
             'INSERT INTO income (income_date, amount, description, user_id, selected_currency_id) VALUES (to_date($1, \'DD-MM-YYYY\'), $2, $3, $4, $5)', [
               income_date, amount, description, loggedUserId, selectedCurrencyId]
@@ -71,7 +67,6 @@ exports.getIncomeById = async (req, res) => {
   };
   
   exports.updateIncome = async (req, res) => {
-
     const incomeId = req.params.id;
     const {income_date, amount, description} = req.body;
 
@@ -94,7 +89,6 @@ exports.getIncomeById = async (req, res) => {
       console.error('Error updating income:', error);
       res.status(500).json({ message: 'Internal server error' });
     }
-    
   };
   
   exports.deleteIncome = async (req, res) => {
