@@ -1,6 +1,5 @@
 const express = require('express');
 const db = require('../database/db');
-const Joi = require('joi');
 const userRouter = express.Router();
 const userController = require('../controllers/userController');
 const { authenticateToken } = require('../middleware/authMiddleware');

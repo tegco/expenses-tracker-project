@@ -1,4 +1,9 @@
 const db = require('../database/db');
+const validationRules = require('../middleware/validationMiddleware');
+
+const registerRules = validationRules.registerValidationRules;
+const loginRules = validationRules.loginValidationRules;
+const validateMiddleware = validationRules.validate;
 
 exports.getAllCategories = async (req, res) => {
 

@@ -1,6 +1,4 @@
 const express = require('express');
-const db = require('../database/db');
-const Joi = require('joi');
 const incomeRouter = express.Router();
 const incomeController = require('../controllers/incomeController');
 const { authenticateToken } = require('../middleware/authMiddleware');

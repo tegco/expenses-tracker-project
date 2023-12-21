@@ -1,12 +1,17 @@
 const { body, validationResult, check } = require('express-validator');
 
-const validate = (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-    next();
-  };
+const validate = (validationRules) => async (req) => {
+
+  await Promise.all(validationRules.map(validationRule => validationRule.run(req)));
+  const errors = validationResult(req);
+  
+  if (!errors.isEmpty()) {
+    const validationError = new Error('Validation failed');
+    validationError.name = 'ValidationError';
+    validationError.errors = errors.array();
+    throw validationError;
+  }
+};
 
 const registerValidationRules = [
     body("username")
@@ -45,7 +50,6 @@ const loginValidationRules = [
             if (inputDate > currentDate) {
               throw new Error('Date must be today or before today');
             }
-        
             return true;
         }),
 
@@ -90,11 +94,17 @@ const loginValidationRules = [
         .isInt().withMessage('Invalid category ID'),
   ];
 
+const validateRegister = validate(registerValidationRules);
+const validateLogin = validate(loginValidationRules);
+const validateUpdatePassword = validate(updatePasswordValidationRules);
+const validateCreateOrUpdateIncome = validate(createOrUpdateIncomeValidationRules);
+const validateCreateOrUpdateExpense = validate(createOrUpdateExpenseValidationRules);
+
   module.exports = {
-    registerValidationRules,
-    loginValidationRules,
-    updatePasswordValidationRules,
     validate,
-    createOrUpdateIncomeValidationRules,
-    createOrUpdateExpenseValidationRules
+    validateRegister,
+    validateLogin,
+    validateUpdatePassword,
+    validateCreateOrUpdateIncome,
+    validateCreateOrUpdateExpense
   };
