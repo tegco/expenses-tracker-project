@@ -15,12 +15,12 @@ exports.register = async (req, res) => {
         // Hash the user's password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        await db.query('INSERT INTO "app_user" (username, password_hash, selected_currency_id) VALUES ($1, $2, $3)',
-        [username, hashedPassword, 2]);
+        await db.query('INSERT INTO "app_user" (username, password_hash, selected_currency_id, monthly_totals) VALUES ($1, $2, $3, $4)',
+        [username, hashedPassword, 2, {}]);
 
         res.status(201).json({ message: 'User registered successfully' });
 
-    }catch(error) {
+    } catch(error) {
         if (error.name === 'ValidationError') {
             const errorMessages = error.errors.map(err => err.msg);
             return res.status(401).json({ message: 'Validation failed', errors: errorMessages });

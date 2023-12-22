@@ -16,8 +16,8 @@ exports.getAllCurrencies = async (req, res) => {
                 currencies_names.push(name);
             }
         }
-
         res.send(currencies_names);
+        
     } catch (error) {
         console.error('Error fetching currencies:', error);
         res.status(500).send("Internal server error");
