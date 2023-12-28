@@ -1,0 +1,30 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    line-height: 1.666;
+    background: rgb(183, 206, 226);
+    color: #6c6b6b;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  } 
+
+header {
+  --background-color: blanchedalmond;
+
+}
+  
+footer {
+  background: black;
+  color: aliceblue;
+  font-size: 75%;
+  width: 100%;
+  padding-top: 25px;
+  position: fixed;
+  bottom: 0;
+  --clear:both;
+}
+
+.nav-tabs {
+  padding-bottom: 20px;
+}
