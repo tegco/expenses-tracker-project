@@ -104,3 +104,22 @@ dist/
 
 # If using Yarn, check this in to ensure reproducibility
 yarn-error.log
+
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
