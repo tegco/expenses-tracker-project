@@ -1,8 +1,7 @@
 import React from 'react';
 import Heading from './Other/Heading';
 import Footer from './Other/Footer';
-import Login from './Authentication/Login';
-import Register from './Authentication/Register';
+import Authentication from './Authentication/Authentication';
 import ExpenseList from './Expense/ExpenseList';
 import NewExpense from './Expense/NewExpense';
 import ShowExpense from './Expense/ShowExpense';
@@ -14,7 +13,7 @@ function App(){
     return (
         <div>
             <Heading/>
-            <Login/>
+            <Authentication/>
             <Footer/>
         </div>
   

@@ -1,23 +1,30 @@
 body {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
+    font-size: 17px;
     line-height: 1.666;
-    background: rgb(183, 206, 226);
-    color: #6c6b6b;
+    background: #9edbf2f4;
+    color: #514444dc;
     text-align: center;
     margin: 0;
     padding: 0;
   } 
 
-header {
-  --background-color: blanchedalmond;
+  nav {
+    border:0;
+    background-color: white;
+    font-size: medium;
+    padding-bottom: 5px;
+  }
 
-}
+  header {
+    padding-bottom: 25px;
+  }
   
 footer {
-  background: black;
+  background: rgba(0, 0, 0, 0.841);
   color: aliceblue;
-  font-size: 75%;
+  font-size: 80%;
   width: 100%;
   padding-top: 25px;
   position: fixed;
@@ -25,6 +32,26 @@ footer {
   --clear:both;
 }
 
-.nav-tabs {
-  padding-bottom: 20px;
+.navbar-brand {
+  padding-left: 10px;
+  font-size: larger;
+  font-weight: 600;
 }
+
+.card form {
+  text-align: left;
+  font-weight: normal;
+}
+
+.card {
+  width: 400px;
+  height: fit-content;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+
+
