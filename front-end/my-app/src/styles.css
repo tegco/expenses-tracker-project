@@ -38,11 +38,6 @@ footer {
   font-weight: 600;
 }
 
-.card form {
-  text-align: left;
-  font-weight: normal;
-}
-
 .card {
   width: 400px;
   height: fit-content;
@@ -53,5 +48,24 @@ footer {
   font-weight: bold;
 }
 
+.card-body h4 {
+  padding-bottom: 10px;
+}
+
+.card button {
+  margin-top: 5px;
+  font-size: medium;
+  border-width: 1px;
+  border-radius: 5px;
+  padding-block: 3px;
+}
+
+.form-group input, label {
+  text-align: left;
+  font-weight:lighter;
+  font-size: small;
+  display: block;
+  margin-block: 10px;
+}
 
 

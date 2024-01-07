@@ -38,6 +38,7 @@ exports.register = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
+  console.log("Received Headers:", req.headers);
   try {
     await validateLogin(req, res);
 

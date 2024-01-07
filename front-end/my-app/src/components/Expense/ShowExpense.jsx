@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
-
-
-function ShowExpense(){
-
+function ShowExpense() {
+  return <div></div>;
 }
 
 export default ShowExpense;
