@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import Form from "./Form";
 import { useNavigate } from "react-router-dom";
-import api from "../../services/api"; // Adjust the path based on your project structure
+import api from "../../services/api";
+
+/*
+Input fields for username and password.
+"Login" button.
+Link to the registration page.
+*/
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -22,16 +28,16 @@ function Login() {
 
       // Store the JWT token in localStorage
       localStorage.setItem("token", token);
-      // Optionally: Redirect the user to another page (e.g., dashboard)
-      navigate("/dashboard"); // Adjust the route as needed
+      // Optionally: Redirect the user to another page
+      navigate("/dashboard");
     } catch (error) {
       alert(error.message);
     }
   };
 
   return (
-    <div class="card">
-      <div class="card-body">
+    <div className="card">
+      <div className="card-body">
         <h4>Login</h4>
 
         <Form

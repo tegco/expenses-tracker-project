@@ -23,8 +23,9 @@ const routes = {
       // Axios automatically parses JSON responses, so you can access data directly
       return response.data;
     } catch (error) {
-      console.error("Error during login:", error);
-      throw new Error("Login failed. Please check your credentials.");
+      console.error(error.response.data);
+      //alert(error.response.data.errors);
+      alert("An error occurred during login. Please try again later.");
     }
   },
 
@@ -35,7 +36,6 @@ const routes = {
         newExpense
       );
 
-      // Axios automatically parses JSON responses, so you can access data directly
       return response.data;
     } catch (error) {
       console.error("Error creating expense:", error);

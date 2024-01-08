@@ -74,7 +74,7 @@ exports.login = async (req, res) => {
     if (error.name === "ValidationError") {
       const errorMessages = error.errors.map((err) => err.msg);
       return res
-        .status(401)
+        .status(400)
         .json({ message: "Validation failed", errors: errorMessages });
     } else {
       return res.status(500).json({ message: "Authentication failed" });

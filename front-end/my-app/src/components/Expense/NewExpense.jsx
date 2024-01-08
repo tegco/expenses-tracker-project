@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import api from "../../services/api";
 
+/*
+Form with fields for date, description, category, amount, etc.
+"Add Expense" button.
+*/
+
 function NewExpense() {
   // State to manage form input values
   const [description, setDescription] = useState("");

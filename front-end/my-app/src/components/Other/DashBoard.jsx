@@ -1,5 +1,11 @@
 import React from "react";
 
+/*
+Display user information.
+Navigation to different sections of the app (List of Expenses, Monthly Totals, Add New Expense, Add New Income, etc.).
+Logout button.
+*/
+
 function Dashboard() {
   return (
     <div>
